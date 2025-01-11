@@ -918,6 +918,9 @@ pub(crate) fn expression(expr: &Expr, checker: &mut Checker) {
             if checker.enabled(Rule::PytestFailWithoutMessage) {
                 flake8_pytest_style::rules::fail_call(checker, call);
             }
+            if checker.enabled(Rule::PytestWarnsWithoutWarning) {
+                flake8_pytest_style::rules::without_warning(checker, call);
+            }
             if checker.enabled(Rule::ZipInsteadOfPairwise) {
                 if checker.settings.target_version >= PythonVersion::Py310 {
                     ruff::rules::zip_instead_of_pairwise(checker, call);

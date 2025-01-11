@@ -24,6 +24,12 @@ pub(super) fn is_pytest_fail(call: &Expr, semantic: &SemanticModel) -> bool {
         .is_some_and(|qualified_name| matches!(qualified_name.segments(), ["pytest", "fail"]))
 }
 
+pub(super) fn is_pytest_warns(call: &Expr, semantic: &SemanticModel) -> bool {
+    semantic
+        .resolve_qualified_name(call)
+        .is_some_and(|qualified_name| matches!(qualified_name.segments(), ["pytest", "warns"]))
+}
+
 pub(super) fn is_pytest_fixture(decorator: &Decorator, semantic: &SemanticModel) -> bool {
     semantic
         .resolve_qualified_name(map_callable(&decorator.expression))

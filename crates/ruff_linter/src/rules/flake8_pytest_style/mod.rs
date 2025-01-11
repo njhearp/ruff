@@ -275,6 +275,12 @@ mod tests {
         Settings::default(),
         "PT027_1"
     )]
+    #[test_case(
+        Rule::PytestWarnsWithoutWarning,
+        Path::new("PT029.py"),
+        Settings::default(),
+        "PT029"
+    )]
     fn test_pytest_style(
         rule_code: Rule,
         path: &Path,

@@ -1,0 +1,11 @@
+---
+source: crates/ruff_linter/src/rules/flake8_pytest_style/mod.rs
+---
+PT029.py:7:14: PT029 `pytest.warns()` should pass a warning class
+  |
+5 | class Test(unittest.TestCase):
+6 |     def test_foo():
+7 |         with pytest.warns():
+  |              ^^^^^^^^^^^^ PT029
+8 |             do_something()
+  |
